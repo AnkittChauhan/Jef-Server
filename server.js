@@ -44,8 +44,8 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
 
 
   const contactForm = {
-    from: 'marketing@jeftechno.com',
-    to: 'marketing@jeftechno.com',
+    from: 'marketingjefuae@gmail.com',
+    to: 'marketingjefuae@gmail.com',
     subject: 'Hello Jef you have a Lead to get in touch !! Hurry',
     html: `
         <p>Hi JEF</p>
@@ -64,7 +64,7 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
 
 
   const autoReplycontactForm = {
-    from: 'marketing@jeftechno.com',
+    from: 'marketingjefuae@gmail.com',
     to: email,
     subject: 'JEF UAE IS READY TO GET IN TOUCH SHORTLY !',
     html: `
@@ -115,8 +115,8 @@ app.post('/reach-us-hudbil', async (req, res) => {
 
 
   const reachUs = {
-    from: 'marketing@jeftechno.com',
-    to: 'marketing@jeftechno.com',
+    from: 'marketingjefuae@gmail.com',
+    to: 'marketingjefuae@gmail.com',
     subject: 'Hello Jef you have a Lead to get in touch !! Hurry',
     html: `
         <p>Hi JEF</p>
@@ -132,7 +132,7 @@ app.post('/reach-us-hudbil', async (req, res) => {
   };
 
   const autoReplyreachUs = {
-    from: 'marketing@jeftechno.com',
+    from: 'marketingjefuae@gmail.com',
     to: email,
     subject: 'JEF UAE IS READY TO GET IN TOUCH SHORTLY !',
     html: `

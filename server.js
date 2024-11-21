@@ -29,7 +29,7 @@ const autoReplyTransporter = nodemailer.createTransport({
 
 //Contact-Us Page --- JEF
 
-app.post('/GetInTouch-form-jeftechno', async (req, res) => {
+app.post('/get-in-touch-jef', async (req, res) => {
   const contactformData = req.body;
   console.log('Form Data:', contactformData);
 
@@ -37,11 +37,11 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
     firstname,
     lastname,
     email,
-    phoneNumber,
-    message
+    phone,
+    company,
+    query,
+    marketing,
   } = contactformData;
-
-
 
   const contactForm = {
     from: 'marketingjefuae@gmail.com',
@@ -52,9 +52,10 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
         <p>You have a new message from the contact form. Here are the details:</p>
         <p><strong>Name:</strong> ${firstname} ${lastname}<br>
         <strong>Email:</strong> ${email} <br>
-        <strong>Message Details:</strong> ${message} </p>
-        <strong>Phone Number:</strong> ${phoneNumber} <br>
+        <strong>Phone Number:</strong> ${phone} <br>
         <strong>Company Name:</strong> ${company} <br>
+        <strong>Message Details:</strong> ${query} </p>
+        <strong>Marketing Permissions:</strong> ${marketing} <br>
         <p>Please review this message and respond as soon as possible.</p>
         <p>Best,</p>
         <p>JEF AI</p>
@@ -70,10 +71,7 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
     html: `
         <p>HI ${firstname},</p>
         <p>Thank you for contacting us! We’ve received your details and our team will get back to you shortly. Here’s a summary of your submission:</p>
-        <p><strong>Name:</strong> ${firstname} ${lastname}<br>
-        <strong>Email:</strong> ${email} <br>
-        <strong>Message:</strong> ${message} <br>
-        <p>We’ll do our best to respond within [response timeframe, 1-2 business days". In the meantime, feel free to browse our website for more information.</p>
+        <p>We’ll do our best to respond within 1-2 business days. In the meantime, feel free to browse our website for more information.</p>
         <p>Best regards, <br>
         JEF UAE Team <br>
         JEF TECHNO SOLUTIONS PRIVATE LIMITED
@@ -86,7 +84,7 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
       console.error('Error sending email:', error);
       res.status(500).json({ error: 'Error sending email' });
     } else {
-      console.log('Email sent to Hudbil:', info.response);
+      console.log('Email sent to JEF:', info.response);
 
       autoReplyTransporter.sendMail(autoReplycontactForm, (autoReplyError, autoReplyInfo) => {
         if (autoReplyError) {
@@ -103,7 +101,7 @@ app.post('/GetInTouch-form-jeftechno', async (req, res) => {
 
 //Contact-us Form --- JEF
 
-app.post('/reach-us-hudbil', async (req, res) => {
+app.post('/contact-us-jef', async (req, res) => {
   const ReachUs = req.body;
   console.log('Form Data:', ReachUs);
 
@@ -136,11 +134,8 @@ app.post('/reach-us-hudbil', async (req, res) => {
     to: email,
     subject: 'JEF UAE IS READY TO GET IN TOUCH SHORTLY !',
     html: `
-        <p>Hi ${firstname},</p>
-         <p><strong>Name:</strong> ${name}<br>
-        <strong>Email:</strong> ${email} <br>
-        <strong>Phone Number:</strong> ${phoneNumber} <br>
-        <p>We’ll do our best to respond within [response timeframe, 1-2 business days". In the meantime, feel free to browse our website for more information.</p>
+        <p>Hi ${name},</p>
+        <p>We’ll do our best to respond within 1-2 business days. In the meantime, feel free to browse our website for more information.</p>
         <p>Best regards, <br>
         JEF UAE Team  <br>
         JEF TECHNO SOLUTIONS PRIVATE LIMITED
@@ -153,7 +148,7 @@ app.post('/reach-us-hudbil', async (req, res) => {
       console.error('Error sending email:', error);
       res.status(500).json({ error: 'Error sending email' });
     } else {
-      console.log('Email sent to Hudbil:', info.response);
+      console.log('Email sent to JEF:', info.response);
 
       autoReplyTransporter.sendMail(autoReplyreachUs, (autoReplyError, autoReplyInfo) => {
         if (autoReplyError) {
